@@ -91,6 +91,8 @@ typedef struct RMF_AudioCapture_Settings {
                                                         This value is ignored for compressed data, and
                                                         can not be changed while connected to any inputs. */
     racFreq samplingFreq;                           /* Captured data sampling freq  tbd, not currently supported..*/
+
+    unsigned int    delayCompensation_ms;           /* Delay compensation in milli seconds */
 } RMF_AudioCapture_Settings;
 
 
