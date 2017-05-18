@@ -58,6 +58,8 @@ typedef enum RMF_AudioCapture_Format {
 
 typedef enum RMF_AudioCapture_Freq {
     racFreq_e16000,         /* 16KHz    */
+    racFreq_e22050,         /* 22.05KHz    */
+    racFreq_e24000,         /* 24KHz    */
     racFreq_e32000,         /* 32KHz    */
     racFreq_e44100,         /* 44.1KHz  */
     racFreq_e48000,         /* 48KHz    */
