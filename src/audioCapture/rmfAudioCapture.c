@@ -27,6 +27,14 @@ RMF_AudioCapture_Open (
 	return RMF_SUCCESS;
 }
 
+rmf_Error
+RMF_AudioCapture_Open_Type (
+        RMF_AudioCaptureHandle* handle,
+        RMF_AudioCaptureType rmfAcType
+) {
+       (void)handle;
+       return RMF_SUCCESS;
+}
 
 rmf_Error
 RMF_AudioCapture_GetStatus (
