@@ -54,10 +54,15 @@ extern "C" {
 
 typedef struct RMF_AudioCapture_Struct *RMF_AudioCaptureHandle;
 
+typedef char *RMF_AudioCaptureType;
+
 /* tbd, Can we use RMF_errors instead of having private errors? */
 #define RMF_ERROR               (1)
 #define RMF_INVALID_PARM        (2)
 
+
+#define RMF_AC_TYPE_PRIMARY     "primary"
+#define RMF_AC_TYPE_AUXILIARY   "auxiliary"
 
 typedef enum RMF_AudioCapture_Format {
     racFormat_e16BitStereo,    /**< Stereo, 16 bits per sample interleaved into a 32-bit word. */
@@ -123,6 +128,8 @@ typedef struct RMF_AudioCapture_Status {
     size_t          fifoDepth;              /**< number of bytes in local fifo */
     unsigned int    overflows;              /**< count of overflows */
     unsigned int    underflows;             /**< count of overflows */
+    int             muted;                  /**< is the capture muted */ //TODO: C interface, bool not define, typedef later
+    float           volume;                 /**< current capture volume */
     /* tbd ... need to determine what is useful or even what is possible.*/
 } RMF_AudioCapture_Status;
 
@@ -147,6 +154,17 @@ typedef struct RMF_AudioCapture_Status {
  * @return  Returns RMF error code.
  */
 rmf_Error RMF_AudioCapture_Open (RMF_AudioCaptureHandle* handle);
+
+/**
+ * @brief This API creates audio capture session, create all required resources to provide audio capture handle.
+ *
+ * @param[in] handle    RMF audio capture instance handle.
+ * @param[in] rmfAcType RMF audio capture instance handle.
+ *
+ * @return  Returns a opaque AudioCaptureHandle, which has to be passed as an argument for all subsequent AudioCapture calls
+ * @return  Returns RMF error code.
+ */
+rmf_Error RMF_AudioCapture_Open_Type (RMF_AudioCaptureHandle* handle, RMF_AudioCaptureType rmfAcType);
 
 /**
  * @brief This API is used to enquire the current status of Audio Capture associated with the current Audio Capture context.
