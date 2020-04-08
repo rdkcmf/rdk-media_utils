@@ -16,6 +16,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##########################################################################
-ACLOCAL_AMFLAGS = -I cfg
 SUBDIRS = $(MEDIA_UTILS_SRC) $(MEDIA_UTILS_TEST)
 DIST_SUBDIRS = $(MEDIA_UTILS_SRC)
