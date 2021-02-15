@@ -129,6 +129,7 @@ typedef struct RMF_AudioCapture_Status {
     unsigned int    overflows;              /**< count of overflows */
     unsigned int    underflows;             /**< count of overflows */
     int             muted;                  /**< is the capture muted */ //TODO: C interface, bool not define, typedef later
+    int             paused;                 /**< is the capture muted */ //TODO: C interface, bool not define, typedef later
     float           volume;                 /**< current capture volume */
     /* tbd ... need to determine what is useful or even what is possible.*/
 } RMF_AudioCapture_Status;
